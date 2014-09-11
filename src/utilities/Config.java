@@ -1,6 +1,7 @@
 package utilities;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,11 +11,23 @@ public class Config {
 	
 	public Config(String configPath) {	
 		entries = new HashMap<String, Object>();
-		Scanner fileReader = new Scanner(new File(configPath).getPath());	// Will getPath() return the correct path?
+		File cfgFile = new File(configPath);
+		
+		Scanner fileReader = null;
+		try {
+			fileReader = new Scanner(cfgFile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println(new File(configPath).getPath());
 		
 		while(fileReader.hasNextLine()) {
 			String entry  = fileReader.nextLine();
-			entries.put(entry.split("=")[0], entry.split("=")[1]);	// Cache the config. More efficient than reading it over and over.			
+			System.out.println("Entry: " + entry);
+			System.out.println("Key: " + entry.split("=")[0] + " Value: " + entry.split("=")[1]);
+			entries.put(entry.split("=")[0], entry.split("=")[1]);	// Cache the config. More efficient than reading it over and over.
 		}
 		fileReader.close();
 	}
