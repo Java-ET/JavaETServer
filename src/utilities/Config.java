@@ -33,7 +33,7 @@ public class Config {
 	}
 	
 	public int getInt(String key) {
-		return (int) entries.get(key);
+		return Integer.valueOf((String) entries.get(key));
 	}
 	
 	public boolean getBoolean(String key) {
