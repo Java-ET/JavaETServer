@@ -41,7 +41,7 @@ public class Config {
 		return (String) entries.get(key);
 	}
 	
-	public int getByte(String key) {
+	public byte getByte(String key) {
 		return Byte.valueOf((String) entries.get(key));
 	}
 }
