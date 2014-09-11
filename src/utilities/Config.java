@@ -21,12 +21,9 @@ public class Config {
 			e.printStackTrace();
 		}
 		
-		System.out.println(new File(configPath).getPath());
-		
 		while(fileReader.hasNextLine()) {
 			String entry  = fileReader.nextLine();
-			System.out.println("Entry: " + entry);
-			System.out.println("Key: " + entry.split("=")[0] + " Value: " + entry.split("=")[1]);
+
 			entries.put(entry.split("=")[0], entry.split("=")[1]);	// Cache the config. More efficient than reading it over and over.
 		}
 		fileReader.close();
@@ -42,5 +39,9 @@ public class Config {
 	
 	public String getString(String key) {
 		return (String) entries.get(key);
+	}
+	
+	public int getByte(String key) {
+		return Byte.valueOf((String) entries.get(key));
 	}
 }
