@@ -23,7 +23,9 @@ public class UserAuthenticator {
 		
 		Statement st = dbConn.createStatement();
 		
-		ResultSet rs = st.executeQuery("SELECT COUNT(*) AS loginCount, username, password, id FROM `accounts` WHERE username='"+inUser+"' AND password='"+inPass+"'");
+		ResultSet rs = st.executeQuery("SELECT COUNT(*) AS loginCount, username, password, id FROM `accounts` "
+										+ "WHERE username='"+inUser+"' "
+												+ "AND password='"+inPass+"'");
 		
 		if(rs.next() && rs.getInt("loginCount") == 1)
 		{
