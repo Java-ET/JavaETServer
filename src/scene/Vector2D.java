@@ -11,5 +11,9 @@ public class Vector2D {
 		x = target.x - origin.x;
 		y = target.y - origin.y;
 	}
+	
+	public double getLength2D() {
+		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	}
 
 }
