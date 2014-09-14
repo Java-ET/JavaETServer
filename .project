@@ -15,11 +15,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>client</name>
-			<type>2</type>
-			<location>E:/Programmering/JavaETClient</location>
-		</link>
-	</linkedResources>
 </projectDescription>
